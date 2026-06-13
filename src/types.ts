@@ -1,4 +1,4 @@
-export type AlgorithmId = "bst-search";
+export type AlgorithmId = "bst-search" | "inorder-traversal";
 
 export interface CodeLine {
   lineNumber: number;

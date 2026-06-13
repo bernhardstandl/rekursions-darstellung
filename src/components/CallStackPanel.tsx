@@ -63,7 +63,7 @@ export function CallStackPanel({ stack }: CallStackPanelProps) {
 
                 {frame.returnValue && (
                   <div className="frame-return">
-                    <span>Rückgabewert</span>
+                    <span>Rückgabewert: </span>
                     <strong>{frame.returnValue}</strong>
                   </div>
                 )}
