@@ -34,6 +34,13 @@ export interface Algorithm {
   id: AlgorithmId;
   name: string;
   description: string;
+  input?: AlgorithmInput;
   code: CodeLine[];
   trace: TraceStep[];
+}
+
+export interface AlgorithmInput {
+  title: string;
+  description: string;
+  ascii: string;
 }

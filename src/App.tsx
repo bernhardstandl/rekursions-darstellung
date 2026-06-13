@@ -10,6 +10,7 @@ import { ExplanationPanel } from "./components/ExplanationPanel";
 import { Legend } from "./components/Legend";
 import { algorithms } from "./data/algorithms";
 import type { AlgorithmId } from "./types";
+import { InputDataPanel } from "./components/InputDataPanel";
 
 function App() {
   const [selectedAlgorithmId, setSelectedAlgorithmId] =
@@ -111,6 +112,14 @@ function App() {
       </header>
 
       <Legend />
+
+      {selectedAlgorithm.input && (
+  <InputDataPanel
+    title={selectedAlgorithm.input.title}
+    description={selectedAlgorithm.input.description}
+    ascii={selectedAlgorithm.input.ascii}
+  />
+)}
 
       <main className="visualization-grid">
         <CodePanel

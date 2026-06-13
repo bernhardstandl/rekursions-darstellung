@@ -247,6 +247,16 @@ export const bstSearchAlgorithm: Algorithm = {
   id: "bst-search",
   name: "BST Suche",
   description: "Rekursive Suche in einem binären Suchbaum nach dem Schlüssel 4.",
+  input: {
+    title: "Binärer Suchbaum, gesucht: Schlüssel 4",
+    description:
+      "Die Suche startet an der Wurzel 5. Da der Baum ein binärer Suchbaum ist, entscheidet jeder Vergleich, ob links oder rechts weitergesucht wird.",
+    ascii: `        5
+      /   \\
+     3     7
+    / \\     \\
+   2   4     8`,
+  },
   code,
   trace,
 };
