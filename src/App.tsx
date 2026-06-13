@@ -119,12 +119,6 @@ function App() {
     description={selectedAlgorithm.input.description}
     ascii={selectedAlgorithm.input.ascii}
   />
-
-   <ExplanationPanel
-          step={currentStep}
-          currentStepNumber={safeStepIndex + 1}
-          totalSteps={selectedAlgorithm.trace.length}
-        />
 )}
 
       <main className="visualization-grid">
@@ -136,12 +130,9 @@ function App() {
         <CallStackPanel stack={currentStep.stack} />
 
         <CallTreePanel
-  callTree={currentStep.callTree}
-  activeCallId={currentStep.activeCallId}
-  returnValue={currentStep.returnValue}
-  returnFromCallId={currentStep.returnFromCallId ?? null}
-  returnToCallId={currentStep.returnToCallId ?? null}
-/>
+          callTree={currentStep.callTree}
+          activeCallId={currentStep.activeCallId}
+        />
       </main>
 
       <footer className="bottom-area">
