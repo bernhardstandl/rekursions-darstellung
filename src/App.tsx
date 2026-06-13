@@ -130,9 +130,12 @@ function App() {
         <CallStackPanel stack={currentStep.stack} />
 
         <CallTreePanel
-          callTree={currentStep.callTree}
-          activeCallId={currentStep.activeCallId}
-        />
+  callTree={currentStep.callTree}
+  activeCallId={currentStep.activeCallId}
+  returnValue={currentStep.returnValue}
+  returnFromCallId={currentStep.returnFromCallId ?? null}
+  returnToCallId={currentStep.returnToCallId ?? null}
+/>
       </main>
 
       <footer className="bottom-area">

@@ -340,19 +340,159 @@ h1 {
 
 .call-tree {
   margin: 0;
-  padding-left: 0;
-  list-style: none;
-}
-
-.tree-children {
-  margin: 0.7rem 0 0 1.5rem;
-  padding-left: 1.25rem;
-  border-left: 4px solid #cbd5e1;
+  padding: 0;
   list-style: none;
 }
 
 .tree-item {
-  margin: 0.55rem 0;
+  position: relative;
+  margin: 0.75rem 0;
+  list-style: none;
+}
+
+.tree-children {
+  position: relative;
+  margin: 0.85rem 0 0 2rem;
+  padding-left: 2rem;
+  border-left: 5px solid #cbd5e1;
+  list-style: none;
+}
+
+.tree-children .tree-item::before {
+  content: "";
+  position: absolute;
+  top: 1.55rem;
+  left: -2rem;
+  width: 1.65rem;
+  height: 5px;
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+
+.tree-node {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+  max-width: 100%;
+  border: 4px solid #cbd5e1;
+  border-radius: 22px;
+  padding: 0.85rem 1.05rem;
+  background: #f8fafc;
+  color: #172033;
+  font-weight: 1000;
+  font-size: 1.08rem;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.tree-node-label {
+  white-space: nowrap;
+}
+
+.tree-node.active,
+.tree-node.status-active {
+  border-color: #2563eb;
+  background: #eff6ff;
+  box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.16);
+  transform: translateY(-1px);
+}
+
+.tree-node.status-pending {
+  border-color: #f59e0b;
+  background: #fffbeb;
+}
+
+.tree-node.status-completed {
+  border-color: #16a34a;
+  background: #f0fdf4;
+}
+
+.tree-node.returning-from {
+  border-color: #16a34a;
+  background: #dcfce7;
+  box-shadow: 0 0 0 8px rgba(22, 163, 74, 0.18);
+}
+
+.tree-node.return-target {
+  border-color: #7c3aed;
+  background: #f3e8ff;
+  box-shadow: 0 0 0 8px rgba(124, 58, 237, 0.16);
+}
+
+.tree-return-badge,
+.tree-current-return,
+.tree-receive-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.32rem 0.65rem;
+  font-size: 0.82rem;
+  font-weight: 1000;
+  letter-spacing: 0.02em;
+}
+
+.tree-return-badge {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.tree-current-return {
+  background: #16a34a;
+  color: white;
+}
+
+.tree-receive-badge {
+  background: #7c3aed;
+  color: white;
+}
+
+.return-flow {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 1.2rem;
+  padding: 1rem;
+  border: 4px solid #16a34a;
+  border-radius: 22px;
+  background: #f0fdf4;
+  color: #14532d;
+  box-shadow: 0 14px 34px rgba(22, 163, 74, 0.12);
+}
+
+.return-flow-label {
+  font-size: 0.85rem;
+  font-weight: 1000;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.return-flow-path {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 1rem;
+}
+
+.return-flow-arrow {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: #16a34a;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 1000;
+}
+
+.return-flow-value {
+  font-size: 1.08rem;
+  font-weight: 900;
 }
 
 .tree-node {

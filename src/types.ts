@@ -23,6 +23,8 @@ export interface CallTreeNode {
   id: string;
   label: string;
   children: CallTreeNode[];
+  status?: FrameStatus;
+  returnValue?: string;
 }
 
 export interface TraceStep {
