@@ -4,7 +4,7 @@ interface AlgorithmSelectorProps {
   algorithms: Algorithm[];
   selectedAlgorithmId: AlgorithmId;
   onSelectAlgorithm: (algorithmId: AlgorithmId) => void;
-}
+} 
 
 export function AlgorithmSelector({
   algorithms,
