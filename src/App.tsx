@@ -119,6 +119,12 @@ function App() {
     description={selectedAlgorithm.input.description}
     ascii={selectedAlgorithm.input.ascii}
   />
+
+   <ExplanationPanel
+          step={currentStep}
+          currentStepNumber={safeStepIndex + 1}
+          totalSteps={selectedAlgorithm.trace.length}
+        />
 )}
 
       <main className="visualization-grid">
