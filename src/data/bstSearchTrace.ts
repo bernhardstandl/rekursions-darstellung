@@ -202,35 +202,53 @@ const trace: TraceStep[] = [
     activeCallId: "call-4",
   },
   {
-    id: 13,
-    title: "return Knoten 4",
-    description:
-      "TreeSearch(4, 4) gibt den gefundenen Knoten 4 an den vorherigen Aufruf zurück.",
-    activeLine: 6,
-    stack: [frame5(false), frame3(false), frame4(true)],
-    callTree: callTree534,
-    activeCallId: "call-4",
-  },
-  {
-    id: 14,
-    title: "Rückgabe an TreeSearch(3, 4)",
-    description:
-      "Der Aufruf TreeSearch(3, 4) erhält das Ergebnis aus seinem rechten Teilbaum und gibt den Knoten 4 weiter zurück.",
-    activeLine: 11,
-    stack: [frame5(false), frame3(true)],
-    callTree: callTree534,
-    activeCallId: "call-3",
-  },
-  {
-    id: 15,
-    title: "Rückgabe an TreeSearch(5, 4)",
-    description:
-      "Der ursprüngliche Aufruf TreeSearch(5, 4) erhält das Ergebnis aus seinem linken Teilbaum.",
-    activeLine: 9,
-    stack: [frame5(true)],
-    callTree: callTree534,
-    activeCallId: "call-5",
-  },
+  id: 13,
+  title: "return Knoten 4",
+  description:
+    "TreeSearch(4, 4) gibt den gefundenen Knoten 4 an den vorherigen Aufruf zurück.",
+  activeLine: 6,
+  stack: [
+    { ...frame5(false), status: "pending", note: "wartet auf Ergebnis aus dem linken Teilbaum" },
+    { ...frame3(false), status: "pending", note: "wartet auf Ergebnis aus dem rechten Teilbaum" },
+    { ...frame4(true), status: "completed", returnValue: "Knoten 4" }
+  ],
+  callTree: callTree534,
+  activeCallId: "call-4",
+  returnValue: "Knoten 4",
+  returnFromCallId: "call-4",
+  returnToCallId: "call-3",
+},
+{
+  id: 14,
+  title: "Rückgabe an TreeSearch(3, 4)",
+  description:
+    "TreeSearch(3, 4) erhält den Rückgabewert Knoten 4 aus dem rechten Teilbaum und gibt ihn weiter.",
+  activeLine: 11,
+  stack: [
+    { ...frame5(false), status: "pending", note: "wartet auf Ergebnis aus dem linken Teilbaum" },
+    { ...frame3(true), status: "completed", returnValue: "Knoten 4" }
+  ],
+  callTree: callTree534,
+  activeCallId: "call-3",
+  returnValue: "Knoten 4",
+  returnFromCallId: "call-3",
+  returnToCallId: "call-5",
+},
+{
+  id: 15,
+  title: "Rückgabe an TreeSearch(5, 4)",
+  description:
+    "Der ursprüngliche Aufruf erhält den Knoten 4 aus seinem linken Teilbaum.",
+  activeLine: 9,
+  stack: [
+    { ...frame5(true), status: "completed", returnValue: "Knoten 4" }
+  ],
+  callTree: callTree534,
+  activeCallId: "call-5",
+  returnValue: "Knoten 4",
+  returnFromCallId: "call-5",
+  returnToCallId: null,
+},
   {
     id: 16,
     title: "Ergebnis: Knoten 4",

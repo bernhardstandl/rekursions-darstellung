@@ -7,11 +7,16 @@ export interface CodeLine {
 
 export type VariableValue = string | number | null;
 
+export type FrameStatus = "active" | "pending" | "completed";
+
 export interface StackFrame {
   id: string;
   call: string;
   variables: Record<string, VariableValue>;
   isActive: boolean;
+  status?: FrameStatus;
+  returnValue?: string;
+  note?: string;
 }
 
 export interface CallTreeNode {
@@ -28,6 +33,9 @@ export interface TraceStep {
   stack: StackFrame[];
   callTree: CallTreeNode;
   activeCallId: string | null;
+  returnValue?: string;
+  returnFromCallId?: string | null;
+  returnToCallId?: string | null;
 }
 
 export interface Algorithm {
